@@ -1,11 +1,17 @@
+import { useState } from "react";
 import Counter from "./components/Counter";
+import Setting from "./components/Setting";
 
 export default function App() {
-    const plusN = (n, count) => {
+    const [operation, setOperation] = useState("add");
+    const [n, setN] = useState(1);
+    const [start, setStart] = useState(1);
+
+    const addN = (n, count) => {
         return count + n;
     };
 
-    function multipleN(n, count) {
+    function multiplyN(n, count) {
         return count * n;
     };
 
@@ -15,11 +21,19 @@ export default function App() {
                 React Counter App
             </h1>
             <div className="flex flex-wrap gap-2">
-                <Counter method={plusN} n={1} start={0} />
-                <Counter method={plusN} n={2} start={0} />
-                <Counter method={multipleN} n={2} start={1} />
-                <Counter method={plusN} n={3} start={0} />
-                <Counter method={multipleN} n={-3} start={1} />
+                <Counter
+                    method={operation === "add" ? addN : multiplyN}
+                    n={n}
+                    start={start}
+                />
+                <Setting
+                    operation={operation}
+                    setOperation={setOperation}
+                    n={n}
+                    setN={setN}
+                    start={start}
+                    setStart={setStart}
+                />
             </div>
         </div>
     )
