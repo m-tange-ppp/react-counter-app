@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: "Edu VIC WA NT Beginner", cursive;
+    background-color: rgba(156, 31, 185, 0.4);
+}
