@@ -9,6 +9,7 @@ export default function App() {
     const [num, setNum] = useState(start);
     const [flagBg, setFlagBg] = useState(true);
     const [count, setCount] = useState(0);
+    const [bgColor, setBgColor] = useState("#FFFFFF");
 
     useEffect(() => {
         resetCounter();
@@ -20,6 +21,7 @@ export default function App() {
         } else {
             setFlagBg(true);
         }
+        createBgColor();
     }, [num]);
 
     function resetCounter() {
@@ -35,9 +37,18 @@ export default function App() {
         return count * rate;
     }
 
+    function createBgColor() {
+        const letter = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += letter[Math.floor(Math.random() * 16)];
+        }
+        setBgColor(color);
+    }
+
     return (
-        <div>
-            <h1 className="text-4xl text-center m-4 font-bold bg-gradient-to-r from-pink-500 to-violet-700 bg-clip-text text-transparent">
+        <div className="h-screen p-2 transition-colors duration-300" style={{ backgroundColor: bgColor }}>
+            <h1 className="text-4xl text-center m-2 mt-0 font-bold bg-gradient-to-r from-pink-500 to-violet-700 bg-clip-text text-transparent">
                 React Counter App
             </h1>
             <div className="flex flex-wrap gap-2 justify-center">

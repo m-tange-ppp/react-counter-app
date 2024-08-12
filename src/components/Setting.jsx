@@ -1,6 +1,6 @@
 export default function Setting(props) {
     return (
-        <div className={"flex flex-col items-center justify-center gap-4 p-2 w-[calc(100%-1rem)] sm:w-[calc(50%-0.75rem)] border-neutral-900 rounded-xl bg-gradient-to-r from-blue-600 to-red-600 transition-shadow duration-300 hover:ring-4 ring-violet-500"}>
+        <div className={"flex flex-col items-center justify-center gap-4 p-2 w-[100%] sm:w-[calc(50%-0.75rem)] border-neutral-900 rounded-xl bg-gradient-to-r from-blue-600 to-red-600 transition-shadow duration-300 hover:ring-4 ring-violet-500"}>
             <div className="flex gap-2">
                 <div class="flex items-center">
                     <input
