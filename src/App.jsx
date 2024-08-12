@@ -53,6 +53,7 @@ export default function App() {
             </h1>
             <div className="flex flex-wrap gap-2 justify-center">
                 <Counter
+                    operation={operation}
                     method={operation === "add" ? addN : multiplyN}
                     rate={rate}
                     start={start}
