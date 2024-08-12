@@ -20,7 +20,7 @@ export default function App() {
             <h1 className="text-4xl text-center m-4 font-bold bg-gradient-to-r from-pink-500 to-violet-700 bg-clip-text text-transparent">
                 React Counter App
             </h1>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center">
                 <Counter
                     method={operation === "add" ? addN : multiplyN}
                     n={n}
