@@ -9,7 +9,7 @@ export default function Setting(props) {
                         class="w-4 h-2 text-blue-600 bg-gray-100 border-gray-300"
                         onChange={() => { props.setOperation("add") }}
                     />
-                    <label for="default-radio-1" class=" ms-2 text-xl font-medium text-gray-100">Add</label>
+                    <label htmlFor="default-radio-1" class=" ms-2 text-xl font-medium text-gray-100">Add</label>
                 </div>
                 <div class="flex items-center">
                     <input
@@ -17,18 +17,18 @@ export default function Setting(props) {
                         id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-2 text-blue-600 bg-gray-100 border-gray-300"
                         onChange={() => { props.setOperation("multiply") }}
                     />
-                    <label for="default-radio-2" class="ms-2 text-xl font-medium text-gray-100">Multiply</label>
+                    <label htmlFor="default-radio-2" class="ms-2 text-xl font-medium text-gray-100">Multiply</label>
                 </div>
             </div>
 
             <div className="flex gap-2">
                 <button className="flex items-center text-xl h-8 rounded-xl bg-neutral-950 px-4 text-neutral-50 shadow-lg shadow-neutral-500/20 transition active:scale-95"
-                    onClick={() => props.setN(props.n - 1)}>-</button>
-                <span className="flex justify-center items-center text-xl h-8 w-20 rounded-xl bg-neutral-200 border-4 border-black border-dashed"> {props.n} </span>
+                    onClick={() => props.setRate(props.rate - 1)}>-</button>
+                <span className="flex justify-center items-center text-xl h-8 w-20 rounded-xl bg-neutral-200 border-4 border-black border-dashed"> {props.rate} </span>
                 <button className="flex items-center text-xl h-8 rounded-xl bg-neutral-950 px-4 text-neutral-50 shadow-lg shadow-neutral-500/20 transition active:scale-95"
-                    onClick={() => props.setN(props.n + 1)}>+</button>
+                    onClick={() => props.setRate(props.rate + 1)}>+</button>
                 <button className="flex items-center h-8 rounded-xl bg-neutral-950 px-4 text-neutral-50 shadow-lg shadow-neutral-500/20 transition active:scale-95"
-                    onClick={() => { props.setN(1) }}>Reset</button>
+                    onClick={() => { props.setRate(1) }}>Reset</button>
             </div>
 
             <div className="flex gap-2">

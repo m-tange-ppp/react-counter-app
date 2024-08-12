@@ -1,19 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Counter from "./components/Counter";
 import Setting from "./components/Setting";
 
 export default function App() {
     const [operation, setOperation] = useState("add");
-    const [n, setN] = useState(1);
+    const [rate, setRate] = useState(1);
     const [start, setStart] = useState(1);
+    const [num, setNum] = useState(start);
+    const [flagBg, setFlagBg] = useState(true);
+    const [count, setCount] = useState(0);
 
-    const addN = (n, count) => {
-        return count + n;
-    };
+    useEffect(() => {
+        resetCounter();
+    }, [start, rate, operation]);
 
-    function multiplyN(n, count) {
-        return count * n;
-    };
+    useEffect(() => {
+        if (Math.random() < 0.5) {
+            setFlagBg(false);
+        } else {
+            setFlagBg(true);
+        }
+    }, [num]);
+
+    function resetCounter() {
+        setNum(start);
+        setCount(0);
+    }
+
+    const addN = (rate, count) => {
+        return count + rate;
+    }
+
+    const multiplyN = (rate, count) => {
+        return count * rate;
+    }
 
     return (
         <div>
@@ -23,14 +43,21 @@ export default function App() {
             <div className="flex flex-wrap gap-2 justify-center">
                 <Counter
                     method={operation === "add" ? addN : multiplyN}
-                    n={n}
+                    rate={rate}
                     start={start}
+                    num={num}
+                    setNum={setNum}
+                    flagBg={flagBg}
+                    setFlagBg={setFlagBg}
+                    count={count}
+                    setCount={setCount}
+                    resetCounter={resetCounter}
                 />
                 <Setting
                     operation={operation}
                     setOperation={setOperation}
-                    n={n}
-                    setN={setN}
+                    rate={rate}
+                    setRate={setRate}
                     start={start}
                     setStart={setStart}
                 />
